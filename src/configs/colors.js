@@ -10,6 +10,7 @@ const colors = {
   //black
   transparent: 'transparent',
   blackOp3: 'rgba(0,0,0,0.3)',
+  black30: '#F9F9F9',
   black40: '#F2F2F2',
   black50: '#E0E0E0',
   black60: '#BDBDBD',

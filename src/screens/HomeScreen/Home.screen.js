@@ -9,10 +9,9 @@ import styles from './Home.styles';
 import HomeLogic from './Home.logic';
 import I18n from '../../i18n';
 import { COLORS, IMAGES, STYLES } from '../../configs';
-import { Button, Header, Input } from '../../components';
+import { Button, Header, Input, ScreenMessage } from '../../components';
 import { abbreviateNumber } from '../../utils';
 import { BookIcon, StarIcon } from '../../assets/svgs';
-import { FONT_BODY3, FONT_HEADLINE_H4 } from '../../configs/fonts';
 
 const HomeScreen = () => {
   //logic value here
@@ -25,12 +24,13 @@ const HomeScreen = () => {
         types="nude"
         styleWrap={STYLES.br0}
         styleContainer={styles.wrapItem}
+        onPress={() => actions._handleToCommit(item.title, item.commits)}
       >
         <View style={styles.contentItem}>
           <BookIcon width={18} height={18} fill={COLORS.black70} />
           <View style={[STYLES.fx1, STYLES.pdl8]}>
             <Text style={[styles.titleItem, STYLES.mrb4]}>{item.title}</Text>
-            <Text style={STYLES.mrb8}>{item.desc}</Text>
+            <Text style={[styles.descItem, STYLES.mrb8]}>{item.desc}</Text>
             {item.tag.length ? (
               <View style={styles.tagWrap}>
                 {item.tag.map((tagItem, tagIndex) => (
@@ -141,6 +141,16 @@ const HomeScreen = () => {
         data={data.dataList}
         keyExtractor={(item, index) => index.toString()}
         renderItem={_renderItemMenu}
+        contentContainerStyle={STYLES.fxg1}
+        ListEmptyComponent={
+          <ScreenMessage
+            sourceImage={IMAGES.thunderstorm}
+            styleImage={styles.imageEmpty}
+            styleContainer={{ backgroundColor: COLORS.primaryWhite }}
+            title="We couldn’t find any repositories matching"
+            desc="You could try again"
+          />
+        }
       />
       <Modal
         backdropOpacity={0.3}
@@ -150,12 +160,17 @@ const HomeScreen = () => {
       >
         <View style={styles.containerModal}>
           <View style={styles.wrapModal}>
-            <Text style={[FONT_HEADLINE_H4, STYLES.mrb16]}>LOG OUT</Text>
-            <Text style={[FONT_BODY3, STYLES.mrb12]}>
-              Are you sure want to log out?
+            <Text
+              style={[
+                styles.titleItem,
+                STYLES.mrb16,
+                { color: COLORS.primaryBlack },
+              ]}
+            >
+              LOG OUT
             </Text>
-            <Text style={[FONT_BODY3, STYLES.mrb24]}>
-              Remember, logging out kills all your updates informations from us.
+            <Text style={[styles.descItem, STYLES.mrb12]}>
+              Are you sure want to log out?
             </Text>
             <View style={STYLES.rowAlgCenter}>
               <Button

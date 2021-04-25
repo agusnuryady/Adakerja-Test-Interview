@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   fx1: { flex: 1 },
   fx3: { flex: 3 },
   fx4: { flex: 4 },
+  fxg1: { flexGrow: 1 },
   mr8: { margin: 8 },
   mr12: { margin: 12 },
   mr16: { margin: 16 },
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
   pd16: { padding: 16 },
   pdh8: { paddingHorizontal: 8 },
   pdh12: { paddingHorizontal: 12 },
+  pdh16: { paddingHorizontal: 16 },
   pdv16: { paddingVertical: 16 },
   pdl8: { paddingLeft: 8 },
   row: { flexDirection: 'row' },
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
   txtDecLineT: { textDecorationLine: 'line-through' },
   txtUppercase: { textTransform: 'uppercase' },
   w100: { width: '100%' },
+  zIdx9: { zIndex: 9 },
 
   //Custom Styles
   rowAlgCenter: { flexDirection: 'row', alignItems: 'center' },

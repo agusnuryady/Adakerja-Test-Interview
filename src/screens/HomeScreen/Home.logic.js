@@ -1,17 +1,19 @@
 //package import here
 import { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
 //local import here
 import HomeNavigator from './Home.navigator';
 import { COLORS } from '../../configs';
 import { DATADUMMY, STORAGE_KEY } from '../../constants';
+import { setDataCommits } from '../../redux/redux-actions';
 
 const HomeLogic = () => {
   //package value here
   const { navigator } = HomeLogic.dependencies;
-  const { goBack, goToLogin } = navigator();
+  const { goBack, goToLogin, goToCommitList } = navigator();
+  const dispatch = useDispatch();
 
   //state value here
   const persistState = useSelector((state) => state.persist);
@@ -32,6 +34,7 @@ const HomeLogic = () => {
     let name = await AsyncStorage.getItem(STORAGE_KEY.TOKEN_LOGIN);
     let dataDummy = DATADUMMY.repository;
     setUsername(name);
+    setSearch('facebook/react-native');
     setDataList(dataDummy);
   }, []);
 
@@ -60,6 +63,28 @@ const HomeLogic = () => {
     setDataList(dataFilter);
   }, [search]);
 
+  const _handleToCommit = useCallback(
+    (title, commites) => {
+      const page_number = 1;
+      const page_size = 5;
+      const totalPage = Math.ceil(commites.length / page_size);
+      const sliceData = commites.slice(
+        (page_number - 1) * page_size,
+        page_number * page_size
+      );
+      const dataPagination = {
+        data: sliceData,
+        title,
+        page: page_number,
+        totalPage,
+        size: page_size,
+      };
+      dispatch(setDataCommits(dataPagination, false));
+      goToCommitList();
+    },
+    [dispatch, goToCommitList]
+  );
+
   return {
     //data props here
     data: {
@@ -76,6 +101,7 @@ const HomeLogic = () => {
       _logOut,
       _pinColor,
       _handleSearch,
+      _handleToCommit,
     },
   };
 };

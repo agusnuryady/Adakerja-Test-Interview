@@ -68,6 +68,10 @@ const HomeStyles = StyleSheet.create({
     color: COLORS.primaryBlue,
     lineHeight: 18,
   },
+  descItem: {
+    ...FONT_BODY3,
+    color: COLORS.primaryBlack,
+  },
   tagWrap: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -116,6 +120,10 @@ const HomeStyles = StyleSheet.create({
   wrapButton: {
     width: '100%',
     flex: 1,
+  },
+  imageEmpty: {
+    width: 220,
+    height: 160,
   },
 });
 

@@ -3,12 +3,14 @@ import ArrowDropdownIcon from './icons/arrow_drop_down.svg';
 import ArrowLeftIcon from './icons/arrow_left.svg';
 import ArrowRightIcon from './icons/arrow_right.svg';
 import BookIcon from './icons/book.svg';
+import BranchIcon from './icons/branch.svg';
 import CheckIcon from './icons/check.svg';
 import CheckCircleIcon from './icons/check_circle.svg';
 import ChevronUpIcon from './icons/chevron_up.svg';
 import CloseCircleIcon from './icons/close_circle.svg';
 import CrossIcon from './icons/cross.svg';
 import EditIcon from './icons/edit.svg';
+import GitCommitIcon from './icons/git_commit.svg';
 import InfoCircleIcon from './icons/info_circle.svg';
 import LinkedInIcon from './icons/linkedIn.svg';
 import MenuIcon from './icons/menu.svg';
@@ -35,12 +37,14 @@ export {
   ArrowLeftIcon,
   ArrowRightIcon,
   BookIcon,
+  BranchIcon,
   CheckIcon,
   ChevronUpIcon,
   CheckCircleIcon,
   CloseCircleIcon,
   CrossIcon,
   EditIcon,
+  GitCommitIcon,
   InfoCircleIcon,
   LinkedInIcon,
   MenuIcon,

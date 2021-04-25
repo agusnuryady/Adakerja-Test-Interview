@@ -9,8 +9,8 @@ import reducer from '../redux-reducer';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['persist', 'todo'], // select reducer to persist or permanent
-  blacklist: ['sholat'], // something temporary
+  whitelist: ['persist'], // select reducer to persist or permanent
+  blacklist: [], // something temporary
 };
 const persistedReducer = persistReducer(persistConfig, reducer);
 

@@ -13,10 +13,13 @@ const HomeNavigator = () => {
       routes: [{ name: 'Login' }],
     });
 
+  const goToCommitList = () => navigation.navigate('CommitList');
+
   return {
     navigation,
     goBack,
     goToLogin,
+    goToCommitList,
   };
 };
 

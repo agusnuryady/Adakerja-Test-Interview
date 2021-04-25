@@ -3,9 +3,9 @@ import { StyleSheet } from 'react-native';
 
 //local import
 import { COLORS } from '../../configs';
-import { FONT_BODY1, FONT_BODY5, FONT_HEADLINE_H1 } from '../../configs/fonts';
+import { FONT_HEADLINE_H1, FONT_BODY1, FONT_BODY5 } from '../../configs/fonts';
 
-const LoginStyles = StyleSheet.create({
+const LoginPassStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.black,
@@ -82,4 +82,4 @@ const LoginStyles = StyleSheet.create({
   },
 });
 
-export default LoginStyles;
+export default LoginPassStyles;

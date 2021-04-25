@@ -1,19 +1,23 @@
 import { useNavigation } from '@react-navigation/native';
 
-const LoginNavigator = () => {
+const LoginPassNavigator = () => {
   //package value here
   const navigation = useNavigation();
 
   //place your function navigation in here
   const goBack = () => navigation.goBack();
 
-  const goToLoginPass = () => navigation.navigate('LoginPass');
+  const goToHome = () =>
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
+    });
 
   return {
     navigation,
     goBack,
-    goToLoginPass,
+    goToHome,
   };
 };
 
-export default LoginNavigator;
+export default LoginPassNavigator;

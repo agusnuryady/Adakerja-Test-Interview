@@ -10,6 +10,7 @@ import CrossIcon from './icons/cross.svg';
 import EditIcon from './icons/edit.svg';
 import InfoCircleIcon from './icons/info_circle.svg';
 import LinkedInIcon from './icons/linkedIn.svg';
+import MenuIcon from './icons/menu.svg';
 import MosqueIcon from './icons/mosque.svg';
 import PlusIcon from './icons/plus.svg';
 import SettingIcon from './icons/setting.svg';
@@ -39,6 +40,7 @@ export {
   EditIcon,
   InfoCircleIcon,
   LinkedInIcon,
+  MenuIcon,
   MosqueIcon,
   PlusIcon,
   SettingIcon,

@@ -19,6 +19,8 @@
   "alert": "Alert",
   "card": "Card",
   "input": "Input",
+  "email": "Email",
+  "password": "Password",
   
   "signIn": "Sign In",
   "step": "Step One",

@@ -2,12 +2,14 @@
 import { StyleSheet } from 'react-native';
 
 //local import
-import { COLORS } from '../../configs';
-import { FONT_HEADLINE_H1, FONT_BODY1 } from '../../configs/fonts';
 
 const AuthFirstStyles = StyleSheet.create({
   container: {
     flex: 1,
+    alignContent: 'center',
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

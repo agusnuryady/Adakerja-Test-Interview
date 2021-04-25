@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
 
 import Stack from './Stack';
 import { isBahasa } from '../i18n';
@@ -25,6 +26,9 @@ const App = () => {
         dispatch(chooseLanguage(persistState.language));
       }
     }
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 2000);
   }, [dispatch, first, persistState.language]);
 
   return (

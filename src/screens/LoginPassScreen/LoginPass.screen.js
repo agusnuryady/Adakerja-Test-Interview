@@ -1,18 +1,18 @@
 //package import here
 import React from 'react';
-import { View, Text, StatusBar, Image, ImageBackground } from 'react-native';
+import { View, Text, StatusBar, ImageBackground, Image } from 'react-native';
 
 //local import here
-import styles from './Login.styles';
-import LoginLogic from './Login.logic';
+import styles from './LoginPass.styles';
+import LoginPassLogic from './LoginPass.logic';
 import I18n from '../../i18n';
-import { Header, Button, Input } from '../../components';
+import { Button, Header, Input } from '../../components';
 import { COLORS, IMAGES, STYLES } from '../../configs';
 import { MenuIcon } from '../../assets/svgs';
 
-const LoginScreen = () => {
+const LoginPassScreen = () => {
   //logic value here
-  const { data, actions } = LoginLogic();
+  const { data, actions } = LoginPassLogic();
 
   //place your extension component here
 
@@ -63,23 +63,23 @@ const LoginScreen = () => {
           </Text>
           <View style={[styles.wrapForm, STYLES.mrb24]}>
             <Input
-              value={data.authState.email}
-              onChangeText={(val) => actions._setEmail(val)}
-              placeholder={I18n.t('email')}
+              value={data.authState.password}
+              onChangeText={(val) => actions._setPassword(val)}
+              placeholder={I18n.t('password')}
               returnKeyType="done"
-              keyboardType="email-address"
               autoCapitalize="none"
               styleWrap={STYLES.mrb8}
               styleBox={styles.styleBox}
               isError={data.iserror}
               errorMessage={data.errorMessage}
+              isSecure={true}
             />
             <Button
               color={COLORS.green50}
-              disabled={!data.authState.email}
-              title="Sign in"
+              disabled={!data.authState.password}
+              title="Submit"
               styleContainer={styles.buttonContainer}
-              onPress={actions._validateEmail}
+              onPress={actions._validatePassword}
             />
           </View>
           <View style={styles.wrapInfo}>
@@ -132,4 +132,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default LoginPassScreen;

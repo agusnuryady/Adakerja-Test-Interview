@@ -1,38 +1,45 @@
 //package import here
-import { useEffect } from 'react';
-import { useSelector, shallowEqual } from 'react-redux';
+import { useEffect, useCallback } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 
 //local import here
 import AuthFirstNavigator from './AuthFirst.navigator';
+import { STORAGE_KEY } from '../../constants';
 
 const AuthFirstLogic = () => {
   //package value here
   const { navigator } = AuthFirstLogic.dependencies;
-  const { goBack } = navigator();
+  const { goBack, navigation } = navigator();
 
   //state value here
-  const { persistState, todoState } = useSelector(
-    (state) => ({
-      persistState: state.persist,
-      todoState: state.todo,
-    }),
-    shallowEqual
-  );
 
   //variable value here
 
   useEffect(() => {
     //function here
-  }, []);
+    _validateLogin();
+  }, [_validateLogin]);
 
   //place your function in here
+  const _validateLogin = useCallback(async () => {
+    const token = await AsyncStorage.getItem(STORAGE_KEY.TOKEN_LOGIN);
+
+    if (token) {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home' }],
+      });
+    } else {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Login' }],
+      });
+    }
+  }, [navigation]);
 
   return {
     //data props here
-    data: {
-      persistState,
-      todoState,
-    },
+    data: {},
     //actions props here
     actions: {
       goBack,

@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   pdh12: { paddingHorizontal: 12 },
   pdv16: { paddingVertical: 16 },
   row: { flexDirection: 'row' },
+  jsCspcBwn: { justifyContent: 'space-between' },
   txtCapitalize: { textTransform: 'capitalize' },
   txtDecLineT: { textDecorationLine: 'line-through' },
   txtUppercase: { textTransform: 'uppercase' },

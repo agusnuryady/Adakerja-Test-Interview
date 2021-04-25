@@ -18,6 +18,8 @@
   "alert": "Alert",
   "card": "Card",
   "input": "Input",
+  "email": "Email",
+  "password": "Password",
 
   "youSure": "Apakah anda yakin?",
   "step": "Langkah Pertama",

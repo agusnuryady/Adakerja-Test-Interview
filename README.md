@@ -28,5 +28,15 @@ use this account bellow to login:
 
 username: `adakerja@gmail.com`
 password: `123456`
+
+## Screenshoot
+
+<div align="center">
+    <img width="200" src="https://github.com/agusnuryady/Adakerja-Test-Interview/tree/master/src/assets/images/sc_1.png">
+    <img width="200" src="https://github.com/agusnuryady/Adakerja-Test-Interview/tree/master/src/assets/images/sc_2.png">
+    <img width="200" src="https://github.com/agusnuryady/Adakerja-Test-Interview/tree/master/src/assets/images/sc_3.png">
+    <img width="200" src="https://github.com/agusnuryady/Adakerja-Test-Interview/tree/master/src/assets/images/sc_4.png">
+</div>
+
 ## Created by @agusnuryady
 25-04-2021

@@ -5,6 +5,8 @@ const styles = StyleSheet.create({
 
   //Single Styles
   alItCenter: { alignItems: 'center' },
+  alItEnd: { alignItems: 'flex-end' },
+  br0: { borderRadius: 0 },
   br10: { borderRadius: 10 },
   fx1: { flex: 1 },
   fx3: { flex: 3 },
@@ -36,6 +38,7 @@ const styles = StyleSheet.create({
   pdh8: { paddingHorizontal: 8 },
   pdh12: { paddingHorizontal: 12 },
   pdv16: { paddingVertical: 16 },
+  pdl8: { paddingLeft: 8 },
   row: { flexDirection: 'row' },
   jsCspcBwn: { justifyContent: 'space-between' },
   txtCapitalize: { textTransform: 'capitalize' },

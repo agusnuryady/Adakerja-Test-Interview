@@ -62,7 +62,7 @@ const colors = {
   green90: '#105B19',
 
   //blue
-  blue10: '#B5E5F9',
+  blue10: '#E5F6FA',
   blue20: '#87D4F5',
   blue30: '#5CC3F0',
   blue40: '#41B6ED',
@@ -70,6 +70,9 @@ const colors = {
   blue70: '#2788C7',
   blue80: '#2477B3',
   blue90: '#1C5891',
+
+  //brown
+  brown50: '#AB7B1E',
 };
 
 export default colors;

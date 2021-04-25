@@ -1,139 +1,81 @@
 //package import here
-import React, { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import SplashScreen from 'react-native-splash-screen';
+import AsyncStorage from '@react-native-community/async-storage';
 
 //local import here
 import HomeNavigator from './Home.navigator';
 import { COLORS } from '../../configs';
-import { widthByScreen } from '../../utils';
-import {
-  MosqueIcon,
-  SettingIcon,
-  TodoIcon,
-  WeatherIcon,
-} from '../../assets/svgs';
+import { DATADUMMY, STORAGE_KEY } from '../../constants';
 
 const HomeLogic = () => {
   //package value here
   const { navigator } = HomeLogic.dependencies;
-  const { navigation, goBack } = navigator();
+  const { goBack, goToLogin } = navigator();
 
   //state value here
   const persistState = useSelector((state) => state.persist);
+  const [username, setUsername] = useState('');
+  const [search, setSearch] = useState('');
+  const [dataList, setDataList] = useState([]);
+  const [modalLogout, setModalLogout] = useState(false);
 
   //variable value here
-  const listMenu = [
-    {
-      name: 'signIn',
-      icon: (
-        <SettingIcon
-          width={widthByScreen(9)}
-          height={widthByScreen(9)}
-          fill={COLORS.primaryBlue}
-        />
-      ),
-      color: COLORS.primaryBlue,
-      screen: 'Login',
-      duration: 3300,
-    },
-    {
-      name: 'register',
-      icon: (
-        <SettingIcon
-          width={widthByScreen(9)}
-          height={widthByScreen(9)}
-          fill={COLORS.lime50}
-        />
-      ),
-      color: COLORS.lime50,
-      screen: 'Register',
-      duration: 3300,
-    },
-    {
-      name: 'component',
-      icon: (
-        <SettingIcon
-          width={widthByScreen(9)}
-          height={widthByScreen(9)}
-          fill={COLORS.yellow60}
-        />
-      ),
-      color: COLORS.yellow60,
-      screen: 'Component',
-      duration: 3300,
-    },
-    {
-      name: 'weather',
-      icon: (
-        <WeatherIcon
-          width={widthByScreen(9)}
-          height={widthByScreen(9)}
-          fill={COLORS.blue30}
-        />
-      ),
-      color: COLORS.blue30,
-      screen: 'Weather',
-      duration: 3000,
-    },
-    {
-      name: 'prayer',
-      icon: (
-        <MosqueIcon
-          width={widthByScreen(9)}
-          height={widthByScreen(9)}
-          fill={COLORS.green40}
-        />
-      ),
-      color: COLORS.green40,
-      screen: 'Sholat',
-      duration: 3100,
-    },
-    {
-      name: 'todoList',
-      icon: (
-        <TodoIcon
-          width={widthByScreen(9)}
-          height={widthByScreen(9)}
-          fill={COLORS.yellow50}
-        />
-      ),
-      color: COLORS.yellow50,
-      screen: 'Todo',
-      duration: 3200,
-    },
-    {
-      name: 'setting',
-      icon: (
-        <SettingIcon
-          width={widthByScreen(9)}
-          height={widthByScreen(9)}
-          fill={COLORS.black60}
-        />
-      ),
-      color: COLORS.black60,
-      screen: 'Setting',
-      duration: 3300,
-    },
-  ];
 
   useEffect(() => {
     //function here
-    SplashScreen.hide();
-  }, [persistState.language]);
+    _getData();
+  }, [_getData, persistState.language]);
 
   //place your function in here
+  const _getData = useCallback(async () => {
+    let name = await AsyncStorage.getItem(STORAGE_KEY.TOKEN_LOGIN);
+    let dataDummy = DATADUMMY.repository;
+    setUsername(name);
+    setDataList(dataDummy);
+  }, []);
+
+  const _logOut = useCallback(() => {
+    AsyncStorage.removeItem(STORAGE_KEY.TOKEN_LOGIN);
+    goToLogin();
+  }, [goToLogin]);
+
+  const _pinColor = useCallback((language) => {
+    switch (language) {
+      case 'JavaScript':
+        return COLORS.yellow30;
+      case 'C++':
+        return COLORS.red30;
+      case 'Java':
+        return COLORS.brown50;
+      default:
+        return COLORS.primaryBlue;
+    }
+  }, []);
+
+  const _handleSearch = useCallback(() => {
+    const dataFilter = DATADUMMY.repository.filter((item) =>
+      item.title.includes(search)
+    );
+    setDataList(dataFilter);
+  }, [search]);
 
   return {
     //data props here
     data: {
-      persistState,
-      listMenu,
+      username,
+      search,
+      dataList,
+      modalLogout,
     },
     //actions props here
     actions: {
-      navigation,
       goBack,
+      setSearch,
+      setModalLogout,
+      _logOut,
+      _pinColor,
+      _handleSearch,
     },
   };
 };

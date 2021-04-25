@@ -2,6 +2,7 @@
 import ArrowDropdownIcon from './icons/arrow_drop_down.svg';
 import ArrowLeftIcon from './icons/arrow_left.svg';
 import ArrowRightIcon from './icons/arrow_right.svg';
+import BookIcon from './icons/book.svg';
 import CheckIcon from './icons/check.svg';
 import CheckCircleIcon from './icons/check_circle.svg';
 import ChevronUpIcon from './icons/chevron_up.svg';
@@ -14,6 +15,7 @@ import MenuIcon from './icons/menu.svg';
 import MosqueIcon from './icons/mosque.svg';
 import PlusIcon from './icons/plus.svg';
 import SettingIcon from './icons/setting.svg';
+import StarIcon from './icons/star.svg';
 import ThermometerIcon from './icons/thermometer.svg';
 import TodoIcon from './icons/todo.svg';
 import TrashIcon from './icons/trash.svg';
@@ -32,6 +34,7 @@ export {
   ArrowDropdownIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
+  BookIcon,
   CheckIcon,
   ChevronUpIcon,
   CheckCircleIcon,
@@ -44,6 +47,7 @@ export {
   MosqueIcon,
   PlusIcon,
   SettingIcon,
+  StarIcon,
   ThermometerIcon,
   TodoIcon,
   TrashIcon,
